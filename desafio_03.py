@@ -1,8 +1,6 @@
-print("")
-print("--sistema de poso dedrones de carga--")
-print("")
+print("\n --sistema de poso dedrones de carga--")
 
-codigo = int(input("digite o codigo do drone: "))
+codigo = int(input("\n digite o codigo do drone: "))
 autorizacao = input("o drone possui autorizacao da torre? (s/n): ")
 
 if codigo == 999 or autorizacao == "s":
@@ -12,21 +10,16 @@ if codigo == 999 or autorizacao == "s":
 
 #regra 01
     if bateria < 10:
-        print("")
-        print("pouso autorizado imediatamente por seguranca!")
+        print("\n pouso autorizado imediatamente por seguranca!")
 
 #regra 02
     elif bateria >= 10 and (clima == "esolarado" and vento < 30) or (clima == "chuvoso" and vento < 10):
-        print("")
-        print("POUSO AUTORIZADO: Iniciando descida.")
+        print("\n POUSO AUTORIZADO: Iniciando descida.")
 
     else:
-        print("")
-        print("POUSO NEGADO: Condições meteorológicas perigosas. Aguardando em órbita.")
+        print("\n POUSO NEGADO: Condições meteorológicas perigosas. Aguardando em órbita.")
 
 else:
-    print("")
-    print("ERRO 01: Drone não identificado. Retornando à base.")
+    print("\n ERRO 01: Drone não identificado. Retornando à base.")
 
-print("")
-print("-" * 40)
+print("\n -" * 40)
