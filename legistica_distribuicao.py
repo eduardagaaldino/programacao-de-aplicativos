@@ -1,4 +1,4 @@
-codigo = int(input("digite o codigo do pacote: "))
+codigo = int(input("\n digite o codigo do pacote: "))
 peso = int(input("digite o peso do pacote: "))
 
 if peso < 5 and codigo %10 == 0:
@@ -9,4 +9,3 @@ elif peso > 50 and codigo %10 == 0:
 
 else:
     print(f"pacote {codigo}: carga nao autorizada!")
-

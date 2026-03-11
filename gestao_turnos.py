@@ -1,4 +1,4 @@
-id = int(input("digite seu id: "))
+id = int(input("/n digite seu id: "))
 temperatura = float(input("digite a temperatura: "))
 tempo = int(input("digite a tempo de uso: "))
 
