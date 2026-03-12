@@ -1,0 +1,2 @@
+estoque = ["Teclado", "Mouse", "Monitor"]
+
