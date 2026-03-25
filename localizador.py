@@ -4,13 +4,14 @@ cidades = ["São Paulo", "Rio de Janeiro", "Curitiba", "Belo Horizonte"]
 
 print(f"\nsta antiga: {cidades}")
 
-nome_cidade = input("digite o nome da sua cidade: ")
+nome_cidade = input("\ndigite o nome da sua cidade: ")
 
 if nome_cidade in cidades:
-    cidades.index(nome_cidade)
-    print(f"\nA cidade {cidades} está na posicao {nome_cidade}.")
+    posicao = cidades.index(nome_cidade)
+    print(f"\nA cidade {nome_cidade} está na posicao {posicao}.")
 
 else:
     print("\ninformacao invalida!")
 
 print(f"\nlista atual: {cidades}")
+print("---------------------------------------------")
