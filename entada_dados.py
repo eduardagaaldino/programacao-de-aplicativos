@@ -9,5 +9,5 @@ while produto != "fim":
         carrinho.append(produto)
         print(f"{produto} foi adicionado a o carinho!")
 
-print(f"\ncariinho atual: {carrinho}")
+print(f"\ncarinho atual: {carrinho}")
 print("\n-------------------------------------")
