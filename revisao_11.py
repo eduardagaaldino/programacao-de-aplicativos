@@ -1,7 +1,12 @@
-idade = int(input("digite a tua idade: "))
+print("-----------maioridade----------")
+
+nascimento = int(input("o seu ano de nascimento: "))
+ano = 2026
+
+idade = ano - nascimento
 
 if idade >= 18:
-    print("tu é maior de idade!")
+    print("voce é maior de idade!")
 else:
-    print("infelizmente você nâo cumpre os requesitos de entrada ")
-
+    print("voce e monor de idade!")
+print("--------------------------------")
