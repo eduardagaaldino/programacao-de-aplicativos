@@ -1,17 +1,23 @@
 print("----------aplicador de desconto-----------")
 
-def aplicar_promocao(precos):
-    lista = []
+def aplicar_promocao(precos , lista):
 
-    for p in precos:
-        if p > 100:
-            desconto = p * 0.15
-            preco_final = p - desconto
-            lista.append(p)
+    for x in precos:
+        if x > 100.0:
+            desconto = x * 0.15
+            preco_final = x - desconto
+            lista.append(preco_final)
 
         else: 
-            lista.apend(p) 
+            lista.append(x) 
 
     return lista
 
-lista = []
+lista = [150.0, 80.0, 200.0, 50.0]
+nova_lista = []
+
+lista_atual = aplicar_promocao(lista , nova_lista)
+
+print("lista antiga: " , lista)
+print("lista atualizada: " , lista_atual)
+print("-------------------------------------------")
