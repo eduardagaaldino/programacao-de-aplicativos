@@ -3,7 +3,7 @@ valor_total = float(input("digite o valor total d acompra: "))
 distancia = int(input("digite a distancia da entrega em km: "))
 cupom = input("cupom especial? ")
 
-if valor_total >= 1000.00 end cupom == "s":
+if valor_total >= 1000.00 and cupom == "s":
     desconto_vip = valor_total * 0.2
     valor_desconto_vip = valor_total - desconto_vip
     print("o valor a pagar e de: " , valor_desconto_vip )
