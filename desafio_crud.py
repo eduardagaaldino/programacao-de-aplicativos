@@ -7,10 +7,11 @@ def adicionar_produto(nome,lista):
 def listar_produtos(lista):
     for l in lista:
         indice = lista.index(l)
-        print("indice: " , indice)
+        print(f"o indice do produto {l} é: {indice}")
 
-def atualizar_produto(nome,indice,lista):
-    lista[indice]=nome
+def atualizar_produto(nome,novo_nome,lista):
+    indice = lista.index(nome)
+    lista[indice]=novo_nome
 
 def remover_item(indice,lista):
 
@@ -31,6 +32,12 @@ def exibir_menu(menu):
             produto = input("digite o produto que vc deseja adicionar ao estoque: ")
             adicionar_produto(produto,estoque)
 
+        elif menu == 2:
+            listar_produtos(estoque)
+
+        elif menu == 3:
+            
+            atualizar_produto(nome,novo_nome,lista)
             
 
 
