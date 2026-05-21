@@ -1,3 +1,5 @@
+print("------------viagem------------")
+
 def criar_arquivo():
     open("viagem.txt" , 'w').close()
 
@@ -70,3 +72,4 @@ while opcao != 5:
     elif opcao == 4:
         deletar_destino()
 print("programa encerrao!")
+print("------------------------------")
