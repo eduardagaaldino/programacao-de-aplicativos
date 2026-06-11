@@ -2,7 +2,7 @@ print("----------banco de dados escola----------")
 
 import sqlite3
 
-conexao = sqlite3.connect('escola_demontracao.db')
+conexao = sqlite3.connect('escola_demonstracao.db')
 cursor = conexao.cursor()
 
 cursor.execute ('''
@@ -23,7 +23,7 @@ cpf = input("digite o cpf do aluno:")
 
 comando_inserir = (f'''
                     INSERT INTO alunos (nome_completo , telefone , turma , idade , cpf)
-                    VALUES ('{nome}' , '{telefone}' , '{turma}' , '{idade} , "{cpf}')''')
+                    VALUES ('{nome}' , '{telefone}' , '{turma}' , {idade} , '{cpf}')''')
 
 cursor.execute(comando_inserir)
 conexao.commit()
