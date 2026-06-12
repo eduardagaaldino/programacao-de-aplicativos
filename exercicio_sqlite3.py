@@ -2,6 +2,7 @@ print("----------banco de dados escola----------")
 
 import sqlite3
 
+def cadastrar()
 conexao = sqlite3.connect('escola_demonstracao.db')
 cursor = conexao.cursor()
 
@@ -27,4 +28,7 @@ comando_inserir = (f'''
 
 cursor.execute(comando_inserir)
 conexao.commit()
+print("cadastrado")
 conexao.close()
+
+
