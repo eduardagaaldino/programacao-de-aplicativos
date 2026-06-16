@@ -1,8 +1,9 @@
 print("----------banco de dados escola----------")
+print("\n====alunos=====")
 
 import sqlite3
 
-def cadastrar()
+
 conexao = sqlite3.connect('escola_demonstracao.db')
 cursor = conexao.cursor()
 
