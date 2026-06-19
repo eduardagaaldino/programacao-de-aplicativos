@@ -1,6 +1,5 @@
 print("\n=====professores=====")
 
-
 import sqlite3
 
 def criar():
