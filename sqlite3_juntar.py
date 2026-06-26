@@ -36,11 +36,14 @@ def criar_professor():
         conexao.commit()
         print("cadastrado")
 
-    except sqlite3.Error:
-        print(f"Erro no banco de dados!")
+    except sqlite3.Error as erro:
+        print("Erro no banco de dados!")
 
     except ValueError:
         print("Erro: a idade deve aver apenas numeros!")
+
+    except sqlite3.IntegrityError:
+        print("erro: essa informacao ja existe!")
 
     finally:    
         conexao.close()
@@ -55,7 +58,7 @@ def listar_professores():
         professores = cursor.fetchall()
 
 
-        print("\n=== PROFESSORES CADASTRADOS ===\n")
+        print("\n=== PROFESSORES CADASTRADOS ===")
 
         if not professores:
             print("nunhum professor cadastrado!")
@@ -73,8 +76,11 @@ def listar_professores():
                 print("-" * 40)
 
     except IndexError:
-        print("Erro: o id nao foi encontrado:")
-        
+        print("Erro: posicao nao encontrada")
+
+    except sqlite3.Error as erro:
+        print(f"Erro no banco de dados!")
+
     finally:
         conexao.close()
 
@@ -116,6 +122,12 @@ def alterar_professor():
         else:
             print("Nenhum professor encontrado com esse ID.")
 
+    except sqlite3.Error as erro:
+        print(f"Erro no banco de dados!")
+
+    except ValueError:
+        print("Erro: digite apenas numeros!") 
+
     finally:
         conexao.close()
 
@@ -135,6 +147,12 @@ def remover_professor():
             print("professor excluído com sucesso!")
         else:
             print("Nenhum professor encontrado com esse ID.")
+
+    except ValueError:
+        print("Erro: digite apenas numeros!")
+
+    except sqlite3.Error as erro:
+        print(f"Erro no banco de dados!")
 
     finally:
         conexao.close()
@@ -164,6 +182,9 @@ def menu_professores():
 
             elif opcao == 4:
                 remover_professor()
+
+    except ValueError:
+        print("Erro: digite apenas numeros!")
 
     finally:
         print("programa encerrado!")
@@ -206,6 +227,15 @@ def criar_aluno():
         conexao.commit()
         print("aluno cadastrado!")
 
+    except sqlite3.IntegrityError:
+        print("erro: essa informacao ja existe!")
+
+    except sqlite3.Error as erro:
+        print(f"Erro no banco de dados!")
+
+    except ValueError:
+        print("Erro: digite apenas numeros!") 
+
     finally:    
         conexao.close()
 
@@ -235,6 +265,13 @@ def listar_alunos():
                 print(f"cidade: {aluno[7]}")
                 print(f"estado: {aluno[8]}")
                 print("-" * 40)
+
+    except IndexError:
+        print("Erro: posicao nao encontrada")
+
+    except sqlite3.Error as erro:
+        print(f"Erro no banco de dados!")
+
     finally:
         conexao.close()
 
@@ -263,7 +300,13 @@ def alterar_aluno():
         else:
             print("Nenhum aluno encontrado com esse ID.")
 
-finally:
+    except sqlite3.Error as erro:
+        print(f"Erro no banco de dados!")
+
+    except ValueError:
+        print("Erro: digite apenas numeros!") 
+
+    finally:
         conexao.close()
 
 def remover_aluno():
@@ -282,6 +325,12 @@ def remover_aluno():
             print("Aluno excluído com sucesso!")
         else:
             print("Nenhum aluno encontrado com esse ID.")
+
+    except ValueError:
+        print("Erro: digite apenas numeros!")
+
+    except sqlite3.Error as erro:
+        print(f"Erro no banco de dados!")
 
     finally:
         conexao.close()
@@ -311,27 +360,37 @@ def menu_alunos():
 
             elif opcao == 4:
                 remover_aluno()
+
+    except ValueError:
+        print("Erro: digite apenas numeros!")
+
     finally:
         print("programa encerrado!")
         print("------------------------------")
 
-try:
-    opcao_escolha = 0
+def menu_principal():
+    try:
+        opcao_escolha = 0
 
-    while opcao_escolha != 3:
-        print("-----sistema escolar-----")
-        print("1-professores")
-        print("2-alunos")
-        print("3-sair")
-        opcao_escolha = int(input("escolha uma das opcoes a cima:"))
-        print("-------------------------")
+        while opcao_escolha != 3:
+            print("-----sistema escolar-----")
+            print("1-professores")
+            print("2-alunos")
+            print("3-sair")
+            opcao_escolha = int(input("escolha uma das opcoes a cima:"))
+            print("-------------------------")
 
-        if opcao_escolha == 1:
-            menu_professores()
+            if opcao_escolha == 1:
+                menu_professores()
 
-        elif opcao_escolha == 2:
-            menu_alunos()
+            elif opcao_escolha == 2:
+                menu_alunos()
 
-finally:
-    print("prograna encerrado!")
-    print("-----------------------------")
+    except ValueError:
+            print("Erro: digite apenas numeros!")
+
+    finally:
+        print("prograna encerrado!")
+        print("-----------------------------")
+
+menu_professores()
