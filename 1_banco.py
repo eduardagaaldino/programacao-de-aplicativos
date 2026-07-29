@@ -10,5 +10,11 @@ def inicializar_banco():
             nome TEXT NOT NULL
         )
     ''')
-#o banco não esta salvando s alterações, pq?
+#o banco não esta salvando as alterações, pq?
+    conexao.commit()
     conexao.close()
+
+inicializar_banco()
+
+# estava sem o commit 
+

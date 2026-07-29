@@ -6,8 +6,10 @@ def listar_alunos_e_turmas():
 
     # O relatório roda, mas repete os dados erroneamente em formato de matriz cruzada
     # porque falta definir a regra de colagem (vínculo). Conserte o comando SQL: 
-    cursor.execute("SELECT alunos.nome, turmas.nome_turma FROM alunos INNER JOIN turmas")
+    cursor.execute("SELECT alunos.nome, turmas.nome_turma FROM alunos INNER JOIN turmas ON alunos.turma_id = turmas.id")
 
     for linha in cursor.fetchall():
         print(f"Aluno: {linha[0]} | Turma: {linha[1]}")
     conxao.close()
+
+#falta o ON para ligar as tabelas

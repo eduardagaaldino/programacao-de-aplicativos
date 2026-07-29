@@ -7,8 +7,10 @@ def verficar_registros():
     cursor.execute("SELECT * FROM alunos")
 
     #PORQUE O SEGUNDO PRINT NÃO MOSTRA ABSOLUTAMENTE NADA NO CONSOLE?
-    print("Primeiro print:", cursor.fetchall())
-    print("Segundo print:", cursor.fetchall())
+    dados = cursor.fetchall():
+    print("Primeiro print:", dados)
+    print("Segundo print:", dados)
 
     conexao.close()
 
+#pq o fetchall so roda uma vez

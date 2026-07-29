@@ -9,7 +9,10 @@ def cadastrar_professor(nome, cpf):
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS professores (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome TEXT
+    nome TEXT,
+    cpf UNIQUE TEXT
     )
 
 ''')
+
+#faltava um UNIQUE no text
