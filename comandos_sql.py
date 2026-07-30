@@ -1,13 +1,13 @@
-# import sqlite3
+import sqlite3
 
-# conexao = sqlite3.connect('escola_demonstracao.db')
-# cursor = conexao.cursor()
+conexao = sqlite3.connect('sistema_escola.db')
+cursor = conexao.cursor()
 
-# cursor.execute('''
-#      DROP TABLE professores
-# ''')
+cursor.execute('''
+     DROP TABLE professores
+''')
 
-# conexao.commit()
+conexao.commit()
 
 
 # import sqlite3
@@ -23,36 +23,36 @@
 # conexao.commit()
 
 
-import sqlite3
+# import sqlite3
 
-conexao = sqlite3.connect('escola_demonstracao.db')
-cursor = conexao.cursor()
+# conexao = sqlite3.connect('sistema_escola.db')
+# cursor = conexao.cursor()
 
-cursor.execute('''
-     ALTER TABLE alunos
-     ADD COLUMN endereco_aluno TEXT;
-''')
-
-
-conexao.commit()
-
-conexao = sqlite3.connect('escola_demonstracao.db')
-cursor = conexao.cursor()
-
-cursor.execute('''
-     ALTER TABLE alunos
-     ADD COLUMN cidade_aluno TEXT;
-''')
-
-conexao.commit()
+# cursor.execute('''
+#      ALTER TABLE professores
+#      ADD COLUMN cpf TEXT;
+# ''')
 
 
-conexao = sqlite3.connect('escola_demonstracao.db')
-cursor = conexao.cursor()
+# conexao.commit()
 
-cursor.execute('''
-     ALTER TABLE alunos
-     ADD COLUMN estado_aluno TEXT;
-''')
+# conexao = sqlite3.connect('escola_demonstracao.db')
+# cursor = conexao.cursor()
 
-conexao.commit()
+# cursor.execute('''
+#      ALTER TABLE alunos
+#      ADD COLUMN cidade_aluno TEXT;
+# ''')
+
+# conexao.commit()
+
+
+# conexao = sqlite3.connect('escola_demonstracao.db')
+# cursor = conexao.cursor()
+
+# cursor.execute('''
+#      ALTER TABLE alunos
+#      ADD COLUMN estado_aluno TEXT;
+# ''')
+
+# conexao.commit()

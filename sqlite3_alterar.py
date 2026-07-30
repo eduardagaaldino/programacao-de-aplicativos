@@ -10,7 +10,7 @@ novo_cpf = input("Digite o novo CPF: ")
 sql = f'''
 UPDATE Alunos
 SET nome_completo = '{novo_nome}',
-    cpf = '{novo_cpf}'
+cpf = '{novo_cpf}'
 WHERE id = {id_aluno}
 '''
 

@@ -1,3 +1,9 @@
+#o banco não esta salvando as alterações, pq?
+
+# estava sem o commit 
+
+
+
 import sqlite3 
 
 def inicializar_banco():
@@ -10,11 +16,18 @@ def inicializar_banco():
             nome TEXT NOT NULL
         )
     ''')
-#o banco não esta salvando as alterações, pq?
+
+    cursor.execute('''
+            CREATE TABLE IF NOT EXISTS series (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nome_serie TEXT NOT NULL,
+                id_escola INTERGER,
+                FOREIGN KEY (id_escola) REFERENCES escolas (id)
+            )
+        ''')
+
     conexao.commit()
     conexao.close()
+    print("banco de dados criado com sucesso!")
 
 inicializar_banco()
-
-# estava sem o commit 
-
