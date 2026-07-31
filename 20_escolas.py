@@ -10,11 +10,19 @@ def cadastrar_escola_manual():
 
     # Se rodar duas vezes com o ID 1, o programa fecha abruptamente (Crash).
     # Aplique a blindagem protetora necessária:
+    try:
     cursor.execute(
         "INSERT INTO escolas (id, nome) VALUES (?, ?)",
         (id_escola, nome)
     )
 
     conexao.commit()
-    conexao.close()
-Visto: Há 2 min
+    print("nova escola cadastrada!")
+
+    except sqlite3.IntegrityError:
+        print("Erro, já existe uma escola cadastrada com esse ID!")
+
+    finally:
+        conexao.close()
+
+#devesse usar o try, except e finally

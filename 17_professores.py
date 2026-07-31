@@ -8,7 +8,9 @@ def inserir_professor(nome, materia, cpf):
         # Por que o programa mostra "CPF já cadastrado" em vez de avisar sobre o erro de sintaxe 
         cursor.execute("INSERT INTO professores (nome, materia, cpf) VALUES (?,?,?)", (nome, materia, cpf))
         conexao.commit()
-    execpt sqlite3.Error:
+    except IntegrityError:
         print("Erro: Este CPF já está cadastrado no sistema!")   
     finally: 
         conexao.close()      
+
+#o except estava com sqlite3.Error que captura qualquer erro do sqlite

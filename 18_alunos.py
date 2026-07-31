@@ -8,7 +8,9 @@ def cadastrar_lista_alunos():
 
     # O comando executemany quebra com a mensagem: "funcion takes exactly 2 arguments".
     # Como passar a lista de dados da forma correta dentro dele?
-    cursor.execute("INSERT INTO alunos (nome, id_turma) VALUES (?,?)", lista)
+    cursor.execute("INSERT INTO alunos (nome, id_turma) VALUES (?, ?)",("Ana", 1))
 
     conexao.commit()
     conexao.close()
+
+#no lucar de (lista) é ana,1
