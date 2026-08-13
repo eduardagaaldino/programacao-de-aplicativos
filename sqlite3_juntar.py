@@ -393,4 +393,4 @@ def menu_principal():
         print("prograna encerrado!")
         print("-----------------------------")
 
-menu_professores()
+menu_principal()
