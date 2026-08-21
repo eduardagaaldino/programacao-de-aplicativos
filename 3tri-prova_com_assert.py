@@ -49,6 +49,8 @@ def listar_redes(banco):
                 print(f"SAC: {r[2]}")
                 print("------------------------------------------")
 
+        return "listado com sucesso!"
+        
     except sqlite3.Error as erro:
         print(f"Erro no banco de dados!")
 
@@ -57,18 +59,14 @@ def listar_redes(banco):
 
 
 
-def atualizar_redes():
+def atualizar_redes(id_rede , novo_nome_rede , novo_sac , banco):
     try:
-        conexao = sqlite3.connect('laboratirio_exames.db')
+        conexao = sqlite3.connect(banco)
         cursor = conexao.cursor()
-
-        id_rede = int(input("Digite o ID da rede que deseja alterar: "))
-        novo_nome_grupo = input("digite o novo nome do grpo:")
-        novo_sac = input("digite o novo SAC:")
 
         sql = f'''
         UPDATE redes_diagnosticos
-        SET nome_grupo = '{novo_nome_grupo}',
+        SET nome_grupo = '{novo_nome_rede}',
             sac = '{novo_sac}'
         WHERE id_rede = {id_rede}
         '''
@@ -82,6 +80,8 @@ def atualizar_redes():
         else:
             print("Nenhuma rede foi encontrada com esse ID!")
 
+        return "rede atualizada!"
+
     except sqlite3.Error as erro:
         print(f"Erro no banco de dados!")
 
@@ -93,12 +93,10 @@ def atualizar_redes():
 
 
 
-def excluir_redes():
+def excluir_redes(id_rede , banco):
     try:
-        conexao = sqlite3.connect("laboratirio_exames.db")
+        conexao = sqlite3.connect(banco)
         cursor = conexao.cursor()
-
-        id_rede = int(input("Digite o ID da rede que deseja excluir: "))
 
         sql = f'''DELETE FROM redes_diagnosticos WHERE id_rede = {id_rede}'''
 
@@ -106,9 +104,9 @@ def excluir_redes():
         conexao.commit()
 
         if cursor.rowcount > 0:
-            print("rede excluído com sucesso!")
+            return "rede excluído com sucesso!"
         else:
-            print("Nenhuma rede foi encontrada com esse ID.")
+            return "Nenhuma rede foi encontrada com esse ID."
 
     except ValueError:
         print("Erro: digite apenas numeros!")
@@ -142,13 +140,20 @@ def menu_redes():
                 cadastrar_redes(nome_grupo, sac, banco)
 
             elif opcao == 2:
-                listar_redes()
+                banco = 'laboratirio_exames.db'
+                listar_redes(banco)
             
             elif opcao == 3:
-                atualizar_redes()
+                id_rede = int(input("Digite o ID da rede que deseja alterar: "))
+                novo_nome_rede = input("digite o novo nome do grpo:")
+                novo_sac = input("digite o novo SAC:")
+                banco = 'laboratirio_exames.db'
+                atualizar_redes(id_rede , novo_nome_rede , novo_sac , banco)
 
             elif opcao == 4:
-                excluir_redes()
+                id_rede = int(input("Digite o ID da rede que deseja excluir: "))
+                banco = 'laboratirio_exames.db'
+                excluir_redes(id_rede , banco)
 
     except ValueError:
         print("Erro: digite apenas numeros!")
@@ -156,7 +161,7 @@ def menu_redes():
         print("------------------------------------------------")
 
 
-def cadastrar_laboratorios ():
+def cadastrar_laboratorios (endereco_laboratorio , id_rede , banco):
     try:
         conexao = sqlite3.connect('laboratirio_exames.db')
         cursor = conexao.cursor()
@@ -170,9 +175,6 @@ def cadastrar_laboratorios ():
                         id_rede INTEGER,
                         FOREIGN KEY (id_rede) REFERENCES redes_diagnosticos(id_rede)
                         )''')
-
-        endereco_laboratorio = input("digite o endereco do laboratorio:")
-        id_rede = int(input("digite o ID da rede em que o laboratorio esta inserido:"))
     
         comando_inserir = (f'''INSERT INTO laboratorios
                             (endereco_laboratorio, id_rede)
@@ -301,15 +303,21 @@ def menu_laboratorios():
             print("---------------------------------------------")
 
             if opcao == 1:
-                cadastrar_laboratorios()
+                endereco_laboratorio = input("digite o endereco do laboratorio:")
+                id_rede = int(input("digite o ID da rede em que o laboratorio esta inserido:"))
+                banco = 'laboratirio_exames.db'
+                cadastrar_laboratorios(endereco_laboratorio , id_rede , banco)
 
             elif opcao == 2:
+                banco = 'laboratirio_exames.db'
                 listar_laboratorios()
             
             elif opcao == 3:
+                banco = 'laboratirio_exames.db'
                 atualizar_laboratorios()
 
             elif opcao == 4:
+                banco = 'laboratirio_exames.db'
                 excluir_laboratorios()
 
     except ValueError:
@@ -334,7 +342,6 @@ def menu_principal():
 
             if opcao == 1:
                 menu_redes()
-
             elif opcao == 2:
                 menu_laboratorios()
 
@@ -346,6 +353,18 @@ def menu_principal():
         print("--------------------------------------------------")
 
 # menu_principal()
+ 
+#testes redes
+# assert cadastrar_redes("amora" , "sac", 'laboratirio_exames_teste.db') == "rede de exames cadastrada!"
+# assert listar_redes('laboratirio_exames_teste.db') == "listado com sucesso!"
+# assert atualizar_redes(1 , "abacate" , "sac" , 'laboratirio_exames_teste.db') == "rede atualizada!"
+# assert excluir_redes(2 , 'laboratirio_exames_teste.db') == "rede excluído com sucesso!"
+# assert excluir_redes(10 , 'laboratirio_exames_teste.db') == "Nenhuma rede foi encontrada com esse ID."
 
-assert cadastrar_redes("amora" , "sac", 'laboratirio_exames_teste.db') == "rede de exames cadastrada!"
+#testes laboratorios
+assert cadastrar_laboratorios("paranavai" , 1 , 'laboratirio_exames_teste.db') == "laboratorio cadastrado!"
+assert listar_laboratorios('laboratirio_exames_teste.db') == "listado com sucesso!"
+assert atualizar_redes(1 , "abacate" , "sac" , 'laboratirio_exames_teste.db') == "laboratorio atualizada!"
+assert excluir_laboratorios(2 , 'laboratirio_exames_teste.db') == "laboratorio excluído com sucesso!"
+assert excluir_laboratorios(10 , 'laboratirio_exames_teste.db') == "Nenhum laboratorio foi encontrado com esse ID."
 print("testes concluidos!")
