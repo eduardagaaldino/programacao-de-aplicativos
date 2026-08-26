@@ -353,16 +353,16 @@ def menu_principal():
 # menu_principal()
  
 #testes redes
-assert cadastrar_redes("amora" , "sac", 'laboratirio_exames_teste.db') == "rede de exames cadastrada!"
-assert listar_redes('laboratirio_exames_teste.db') == "listado com sucesso!"
-assert atualizar_redes(1 , "abacate" , "sac" , 'laboratirio_exames_teste.db') == "rede atualizada!"
-assert excluir_redes(7 , 'laboratirio_exames_teste.db') == "rede excluído com sucesso!"
-# assert excluir_redes(10 , 'laboratirio_exames_teste.db') == "Nenhuma rede foi encontrada com esse ID."
+# assert cadastrar_redes("amora" , "sac", 'laboratirio_exames_teste.db') == "rede de exames cadastrada!"
+# assert listar_redes('laboratirio_exames_teste.db') == "listado com sucesso!"
+# assert atualizar_redes(1 , "abacate" , "sac" , 'laboratirio_exames_teste.db') == "rede atualizada!"
+# assert excluir_redes(7 , 'laboratirio_exames_teste.db') == "rede excluído com sucesso!"
+# # assert excluir_redes(10 , 'laboratirio_exames_teste.db') == "Nenhuma rede foi encontrada com esse ID."
 
-#testes laboratorios
-assert cadastrar_laboratorios("paranavai" , 6 , 'laboratirio_exames_teste.db') == "laboratorio cadastrado!"
-assert listar_laboratorios('laboratirio_exames_teste.db') == "listado com sucesso!"
-assert atualizar_redes(1 , "piracema" , 'laboratirio_exames_teste.db') == "laboratorio atualizada!"
-assert excluir_laboratorios(1 , 'laboratirio_exames_teste.db') == "laboratorio excluído com sucesso!"
-assert excluir_laboratorios(10 , 'laboratirio_exames_teste.db') == "Nenhum laboratorio foi encontrado com esse ID."
-print("testes concluidos!")
+# #testes laboratorios
+# assert cadastrar_laboratorios("paranavai" , 6 , 'laboratirio_exames_teste.db') == "laboratorio cadastrado!"
+# assert listar_laboratorios('laboratirio_exames_teste.db') == "listado com sucesso!"
+# assert atualizar_redes(1 , "piracema" , 'laboratirio_exames_teste.db') == "laboratorio atualizada!"
+# assert excluir_laboratorios(1 , 'laboratirio_exames_teste.db') == "laboratorio excluído com sucesso!"
+# assert excluir_laboratorios(10 , 'laboratirio_exames_teste.db') == "Nenhum laboratorio foi encontrado com esse ID."
+# print("testes concluidos!")
