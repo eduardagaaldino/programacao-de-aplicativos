@@ -81,7 +81,7 @@ print(mensagem1)
 print(mensagem2)
 print(mensagem3)
 
-# banco = "teste_gestao_escolar.db"
-# assert tabela_escolas(banco) == "tabela escolas criada!"
-# assert tabela_turmas(banco) == "tabela turmas criada!"
-# assert tabela_alunos(banco) == "tabela alunos criada!"
+banco = "teste_gestao_escolar.db"
+assert tabela_escolas(banco) == "tabela escolas criada!"
+assert tabela_turmas(banco) == "tabela turmas criada!"
+assert tabela_alunos(banco) == "tabela alunos criada!"
