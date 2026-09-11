@@ -97,45 +97,43 @@ def excluir_escolas(id_escola , banco):
     finally:
         conexao.close()
 
-def menu_escolas():
-    try:
-        opcao = 0
+# def menu_escolas():
+#     try:
+#         opcao = 0
 
-        while opcao != 5:
-            print("---------------------------------------------")
-            print("1- cadastrar escolas")
-            print("2- listar escolas ")
-            print("3- atualizar escolas ")
-            print("4- excluir escolas ")
-            print("5- sair")
-            opcao = int(input("escolha uma das opcoes a cima: "))
-            print("---------------------------------------------")
+#         while opcao != 5:
+#             print("---------------------------------------------")
+#             print("1- cadastrar escolas")
+#             print("2- listar escolas ")
+#             print("3- atualizar escolas ")
+#             print("4- excluir escolas ")
+#             print("5- sair")
+#             opcao = int(input("escolha uma das opcoes a cima: "))
+#             print("---------------------------------------------")
 
-            if opcao == 1:
-                nome_escola = input("digite o nome da escola que deseja cadastrar:")
-                cidade_escola = input("digite a cidade em que a escola esta localizada:")
-                banco = 'gestao_escolar.db'
-                cadastrar_escolas(nome_escola, cidade_escola, banco)
+#             if opcao == 1:
+#                 nome_escola = input("digite o nome da escola que deseja cadastrar:")
+#                 cidade_escola = input("digite a cidade em que a escola esta localizada:")
+#                 banco = 'gestao_escolar.db'
+#                 cadastrar_escolas(nome_escola, cidade_escola, banco)
 
-            elif opcao == 2:
-                banco = 'gestao_escolar.db'
-                listar_escolas(banco)
+#             elif opcao == 2:
+#                 banco = 'gestao_escolar.db'
+#                 listar_escolas(banco)
             
-            elif opcao == 3:
-                id_escola = int(input("Digite o ID da escola que deseja alterar: "))
-                novo_nome_escola = input("digite o novo nome da escola:")
-                nova_cidade_escola = input("digite a nova cidade:")
-                banco = 'gestao_escolar.db'
-                atualizar_escolas(id_escola , novo_nome_escola , nova_cidade_escola , banco)
+#             elif opcao == 3:
+#                 id_escola = int(input("Digite o ID da escola que deseja alterar: "))
+#                 novo_nome_escola = input("digite o novo nome da escola:")
+#                 nova_cidade_escola = input("digite a nova cidade:")
+#                 banco = 'gestao_escolar.db'
+#                 atualizar_escolas(id_escola , novo_nome_escola , nova_cidade_escola , banco)
 
-            elif opcao == 4:
-                id_escola = int(input("Digite o ID da escola que deseja excluir: "))
-                banco = 'gestao_escolar.db'
-                excluir_escolas(id_escola , banco)
+#             elif opcao == 4:
+#                 id_escola = int(input("Digite o ID da escola que deseja excluir: "))
+#                 banco = 'gestao_escolar.db'
+#                 excluir_escolas(id_escola , banco)
 
-    except ValueError:
-        print("Erro: digite apenas numeros!")
-    finally:
-        print("------------------------------------------------")
-
-menu_escolas()
+#     except ValueError:
+#         print("Erro: digite apenas numeros!")
+#     finally:
+#         print("------------------------------------------------")

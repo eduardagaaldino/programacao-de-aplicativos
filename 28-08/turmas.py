@@ -44,7 +44,7 @@ def listar_turmas(banco):
                 print(
                     f"ID: {turma[0]} | "
                     f"Nome: {turma[1]} | "
-                    f"Cidade: {turma[2]}"
+                    f"escola: {turma[2]}"
                 )
 
     except sqlite3.Error:
@@ -104,45 +104,43 @@ def excluir_turmas(id_turma , banco):
     finally:
         conexao.close()
 
-def menu_turmas():
-    try:
-        opcao = 0
+# def menu_turmas():
+#     try:
+#         opcao = 0
 
-        while opcao != 5:
-            print("---------------------------------------------")
-            print("1- cadastrar turmas")
-            print("2- listar turmas ")
-            print("3- atualizar turmas ")
-            print("4- excluir turmas ")
-            print("5- sair")
-            opcao = int(input("escolha uma das opcoes a cima: "))
-            print("---------------------------------------------")
+#         while opcao != 5:
+#             print("---------------------------------------------")
+#             print("1- cadastrar turmas")
+#             print("2- listar turmas ")
+#             print("3- atualizar turmas ")
+#             print("4- excluir turmas ")
+#             print("5- sair")
+#             opcao = int(input("escolha uma das opcoes a cima: "))
+#             print("---------------------------------------------")
 
-            if opcao == 1:
-                nome_turma = input("digite o nome da turma que deseja cadastrar:")
-                id_escola = input("digite o id da escola que esta vinculada a turma:")
-                banco = 'gestao_escolar.db'
-                cadastrar_turmas(nome_turma, id_escola, banco)
+#             if opcao == 1:
+#                 nome_turma = input("digite o nome da turma que deseja cadastrar:")
+#                 id_escola = input("digite o id da escola que esta vinculada a turma:")
+#                 banco = 'gestao_escolar.db'
+#                 cadastrar_turmas(nome_turma, id_escola, banco)
 
-            elif opcao == 2:
-                banco = 'gestao_escolar.db'
-                listar_turmas(banco)
+#             elif opcao == 2:
+#                 banco = 'gestao_escolar.db'
+#                 listar_turmas(banco)
             
-            elif opcao == 3:
-                id_turma = int(input("Digite o ID da turma que deseja alterar: "))
-                novo_nome_turma = input("digite o novo nome da turma:")
-                novo_id_escola = input("digite o id da nova escola vinculada:")
-                banco = 'gestao_escolar.db'
-                atualizar_turmas(id_turma , novo_nome_turma , novo_id_escola , banco)
+#             elif opcao == 3:
+#                 id_turma = int(input("Digite o ID da turma que deseja alterar: "))
+#                 novo_nome_turma = input("digite o novo nome da turma:")
+#                 novo_id_escola = input("digite o id da nova escola vinculada:")
+#                 banco = 'gestao_escolar.db'
+#                 atualizar_turmas(id_turma , novo_nome_turma , novo_id_escola , banco)
 
-            elif opcao == 4:
-                id_turma = int(input("Digite o ID da turma que deseja excluir: "))
-                banco = 'gestao_escolar.db'
-                excluir_turmas(id_turma , banco)
+#             elif opcao == 4:
+#                 id_turma = int(input("Digite o ID da turma que deseja excluir: "))
+#                 banco = 'gestao_escolar.db'
+#                 excluir_turmas(id_turma , banco)
 
-    except ValueError:
-        print("Erro: digite apenas numeros!")
-    finally:
-        print("------------------------------------------------")
-
-menu_turmas()
+#     except ValueError:
+#         print("Erro: digite apenas numeros!")
+#     finally:
+#         print("------------------------------------------------")

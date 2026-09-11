@@ -44,7 +44,8 @@ def listar_alunos(banco):
                 print(
                     f"ID: {aluno[0]} | "
                     f"Nome: {aluno[1]} | "
-                    f"Cidade: {aluno[2]}"
+                    f"idade: {aluno[2]} |"
+                    f"turma: {aluno[3]} "
                 )
 
     except sqlite3.Error:
@@ -105,46 +106,45 @@ def excluir_alunos(id_aluno , banco):
     finally:
         conexao.close()
 
-def menu_alunos():
-    try:
-        opcao = 0
+# def menu_alunos():
+#     try:
+#         opcao = 0
 
-        while opcao != 5:
-            print("---------------------------------------------")
-            print("1- cadastrar alunos")
-            print("2- listar alunos ")
-            print("3- atualizar alunos ")
-            print("4- excluir alunos ")
-            print("5- sair")
-            opcao = int(input("escolha uma das opcoes a cima: "))
-            print("---------------------------------------------")
+#         while opcao != 5:
+#             print("---------------------------------------------")
+#             print("1- cadastrar alunos")
+#             print("2- listar alunos ")
+#             print("3- atualizar alunos ")
+#             print("4- excluir alunos ")
+#             print("5- sair")
+#             opcao = int(input("escolha uma das opcoes a cima: "))
+#             print("---------------------------------------------")
 
-            if opcao == 1:
-                nome_aluno = input("digite o nome da turma que deseja cadastrar:")
-                idade_aluno = int(input("digite a idade do aluno que deseja cadastrar:"))
-                id_turma = input("digite o id da turma que esta vinculada a esse aluno:")
-                banco = 'gestao_escolar.db'
-                cadastrar_turmas(nome_turma, id_escola, banco)
+#             if opcao == 1:
+#                 nome_aluno = input("digite o nome do aluno que deseja cadastrar:")
+#                 idade_aluno = int(input("digite a idade do aluno que deseja cadastrar:"))
+#                 id_turma = input("digite o id da turma que esse aluno esta vinculado:")
+#                 banco = 'gestao_escolar.db'
+#                 cadastrar_alunos(nome_aluno, idade_aluno, id_turma, banco)
 
-            elif opcao == 2:
-                banco = 'gestao_escolar.db'
-                listar_turmas(banco)
+#             elif opcao == 2:
+#                 banco = 'gestao_escolar.db'
+#                 listar_alunos(banco)
             
-            elif opcao == 3:
-                id_turma = int(input("Digite o ID da turma que deseja alterar: "))
-                novo_nome_turma = input("digite o novo nome da turma:")
-                novo_id_escola = input("digite o id da nova escola vinculada:")
-                banco = 'gestao_escolar.db'
-                atualizar_turmas(id_turma , novo_nome_turma , novo_id_escola , banco)
+#             elif opcao == 3:
+#                 id_aluno = int(input("Digite o ID do aluno que deseja alterar: "))
+#                 novo_nome_aluno = input("digite o novo nome do aluno:")
+#                 nova_idade_aluno = input("digite a nova idade do aluno:")
+#                 novo_id_turma = input("digite o id da nova turma vinculada:")
+#                 banco = 'gestao_escolar.db'
+#                 atualizar_alunos(id_aluno , novo_nome_aluno, nova_idade_aluno, novo_id_turma , banco)
 
-            elif opcao == 4:
-                id_turma = int(input("Digite o ID da turma que deseja excluir: "))
-                banco = 'gestao_escolar.db'
-                excluir_turmas(id_turma , banco)
+#             elif opcao == 4:
+#                 id_aluno = int(input("Digite o ID do aluno que deseja excluir: "))
+#                 banco = 'gestao_escolar.db'
+#                 excluir_alunos(id_aluno, banco)
 
-    except ValueError:
-        print("Erro: digite apenas numeros!")
-    finally:
-        print("------------------------------------------------")
-
-menu_turmas()
+#     except ValueError:
+#         print("Erro: digite apenas numeros!")
+#     finally:
+#         print("------------------------------------------------")
